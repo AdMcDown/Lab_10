@@ -1,0 +1,30 @@
+/* just made this very simple css to help style my page */
+html {
+    text-align: center;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+}
+
+/* the colours are gross but it adds to the randomness of the page, also never tried the box-shadow affect! its really cool :P */
+div section {
+    border: 5px dotted violet;
+    box-shadow: 0 5px 20px yellowgreen;
+    margin: 50px;
+    width: 400px;
+}
+
+p {
+    text-align: left;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+ul {
+    text-align: left;
+    margin-right: 25px;
+}
