@@ -17,6 +17,7 @@ request.onload = function () {
     let products = request.response;
     topDeals(products);
     footerInfo(products);
+    newQuote(); //made so it adds a queote at start
 }
 
 //Grabs spasific infomation and displays it :P
@@ -69,19 +70,34 @@ function footerInfo(jsonObj) {
     footer.appendChild(par);
 }
 
+let jb = document.getElementById('newQuote');
+jb.onclick = newQuote;
+
 //fetch command using RapidApi 
-fetch("https://dad-jokes.p.rapidapi.com/random/jokes", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
-            "x-rapidapi-key": "12a0bb55d3msh09c3d3afa75ae51p16362ejsnb76059e5e875"
-        }
-    })
-    .then(idontgetit => {
-        console.log(idontgetit);
-    })
-    .catch(err => {
-        console.log(err);
-    });
+//ok so the jokes were working and everything was going great but then I hit my max for using the api with an on paid plan...
+//anyways just did this simple quote one instead and isnt as fun or colourfull as the last one but it has unlimited uses on free plan :P
+function newQuote() {
+    fetch("https://quotes15.p.rapidapi.com/quotes/random/?language_code=en", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "quotes15.p.rapidapi.com",
+                "x-rapidapi-key": "12a0bb55d3msh09c3d3afa75ae51p16362ejsnb76059e5e875"
+            }
+        })
+        .then(res => res.json())
+
+        .then(data => {
+
+            setup = data["content"];
+            let quote = document.getElementById('quote');
+            quote.textContent = setup;
+        })
+
+
+        .catch(err => {
+            console.log(err);
+        });
+
+}
 
 //test I connected github
